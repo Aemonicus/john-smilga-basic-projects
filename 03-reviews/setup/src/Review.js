@@ -51,7 +51,7 @@ const Review = () => {
   }
 
   const randomPeople = () => {
-    const index = Math.floor(Math.random() * 4)
+    const index = Math.floor(Math.random() * peopleData.length)
     const newPerson = peopleData[ index ]
     setCurrentPerson(prevState => newPerson)
   }
