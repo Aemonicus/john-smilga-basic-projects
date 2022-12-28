@@ -5,11 +5,10 @@ import items from './data';
 
 function App() {
   const [ dishes, setDishes ] = useState(items)
-  const [ currentDishes, setCurrentDishes ] = useState(items)
 
   const filterMenu = category => {
-    const filteredMenu = dishes.filter(dish => dish.category === category)
-    setCurrentDishes(prevState => category === "all" ? items : filteredMenu)
+    const filteredMenu = items.filter(item => item.category === category)
+    setDishes(prevState => category === "all" ? items : filteredMenu)
   }
 
   return (
@@ -20,7 +19,7 @@ function App() {
           <div className="underline"></div>
         </div>
         <Categories dishes={dishes} filterMenu={filterMenu} />
-        <Menu dishes={currentDishes} />
+        <Menu dishes={dishes} />
       </section>
     </main>
 
