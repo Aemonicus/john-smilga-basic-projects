@@ -17,10 +17,10 @@ function App() {
   }
 
   useEffect(() => {
-    const timer = setTimeout(() => changeSliderStatus("right"), 4000)
+    const timer = setInterval(() => changeSliderStatus("right"), 3000)
 
-    return () => clearTimeout(timer)
-  })
+    return () => clearInterval(timer)
+  }, [ changeSliderStatus ])
 
   return (
     <section className="section">
