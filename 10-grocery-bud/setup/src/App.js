@@ -24,14 +24,10 @@ function App() {
 
   const handleFormSubmit = (e) => {
     e.preventDefault()
-
-    const existingTask = tasksList.find(task => {
-      return task.id === newTask.id
-    })
+    const existingTask = tasksList.find(task => task.id === newTask.id)
 
     if (existingTask) {
       const result = tasksList.map(item => item.id === newTask.id ? { ...item, title: newTask.title } : item)
-
       setTasksList(result)
 
       setDisplayMessage({ display: true, type: "success", content: "Task Edited !" })
@@ -54,12 +50,14 @@ function App() {
 
   const handleDeleteAll = () => {
     setTasksList([])
+
     setDisplayMessage({ display: true, type: "error", content: "All Tasks deleted !" })
   }
 
   const handleEdit = id => {
     const foundTask = tasksList.find(task => task.id === id)
     setNewTask(foundTask)
+
     setIsEditing(true)
   }
 
